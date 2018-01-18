@@ -2,7 +2,7 @@
 *     File Name           :     x.c                                           *
 *     Created By          :     Klas Segeljakt <klasseg@kth.se>               *
 *     Creation Date       :     [2017-12-08 13:17]                            *
-*     Last Modified       :     [2017-12-08 14:20]                            *
+*     Last Modified       :     [2017-12-12 14:56]                            *
 *     Description         :     Recv code over net, Very safe... right?       *
 ******************************************************************************/
 #include <stdio.h>      // printf, sprintf
@@ -81,7 +81,7 @@ static void compile(char libname[], char filename[]) {
 /*---------------------------------------------------------------------------*/
 static void execute(char libname[], char *funcname, int arg) {
   void *handle = dlopen(libname, RTLD_NOW);
-  func_f func = dlsym(handle, funcname); // Execute function with name: funcname
+  func_f func = dlsym(handle, funcname); // Execute function with name: func
   printf("  %s(%d): %d\n", funcname, arg, func(arg));
   dlclose(handle);
 }
